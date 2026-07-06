@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Padmakar Pimpale | Software Developer + Research Engineer</title>
+  <meta name="description" content="Portfolio of Padmakar Pimpale, MSIS master's student at NTU Singapore, software developer, AI/ML engineer, and research-focused builder.">
+  <style>
+    :root {
+      --ink: #111f1b;
+      --muted: #62706a;
+      --paper: #fbfcfa;
+      --white: #ffffff;
+      --soft: #eef4f1;
+      --line: #d7e2dd;
+      --deep: #0d1d19;
+      --deep-2: #142823;
+      --teal: #13796f;
+      --teal-2: #0d544e;
+      --sage: #7f9d8d;
+      --amber: #bf7a2c;
+      --blue: #2d5f88;
+      --shadow: 0 18px 45px rgba(16, 31, 27, 0.14);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::selection {
+      color: #ffffff;
+      background: var(--teal);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, transparent 0 38%, rgba(19, 121, 111, 0.05) 45%, transparent 54% 100%),
+        linear-gradient(72deg, transparent 0 62%, rgba(191, 122, 44, 0.045) 68%, transparent 74% 100%);
+      background-size: 180% 180%, 220% 220%;
+      animation: ambientShift 22s ease-in-out infinite alternate;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p,
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(13, 29, 25, 0.82);
+      color: var(--white);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 780;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.11);
+      font-size: 0.84rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: right;
+      background: var(--amber);
+      transition: transform 220ms ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 600px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: #ffffff;
+      background: var(--deep);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(9, 19, 17, 0.9) 0%, rgba(9, 19, 17, 0.72) 38%, rgba(9, 19, 17, 0.24) 72%, rgba(9, 19, 17, 0.12) 100%),
+        linear-gradient(180deg, rgba(9, 19, 17, 0.12) 0%, rgba(9, 19, 17, 0.74) 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(9, 19, 17, 0) 0%, rgba(9, 19, 17, 0.84) 100%);
+    }
+
+    .hero .container-flow {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.32;
+      background-image:
+        linear-gradient(90deg, transparent 0 48%, rgba(140, 210, 200, 0.2) 50%, transparent 52% 100%),
+        linear-gradient(0deg, transparent 0 48%, rgba(255, 255, 255, 0.12) 50%, transparent 52% 100%);
+      background-size: 160px 160px;
+      mask-image: linear-gradient(90deg, rgba(0,0,0,0.5), transparent 62%);
+      animation: gridGlide 18s linear infinite;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transform: scale(1.02);
+      animation: heroDrift 18s ease-in-out infinite alternate;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 126px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.92rem;
+      font-weight: 720;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--amber);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-top: 30px;
+      font-size: clamp(3.05rem, 7vw, 5.45rem);
+      line-height: 0.96;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .hero-role {
+      max-width: 840px;
+      margin-top: 18px;
+      color: #ffffff;
+      font-size: clamp(1.35rem, 3vw, 2.35rem);
+      line-height: 1.12;
+      font-weight: 740;
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      padding: 0 17px;
+      font-weight: 760;
+      font-size: 0.94rem;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--deep);
+      background: #ffffff;
+    }
+
+    .button-secondary {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-metrics {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: min(1180px, calc(100% - 32px));
+      transform: translateX(-50%);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-bottom: 0;
+      background: rgba(8, 17, 15, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .metric {
+      min-height: 102px;
+      padding: 18px 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.04rem;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.88rem;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-soft {
+      background: var(--soft);
+    }
+
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-deep {
+      background: var(--deep);
+      color: #ffffff;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(270px, 0.56fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    .kicker {
+      margin-bottom: 10px;
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 820;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-deep .kicker {
+      color: #8cd2c8;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .section-deep .section-heading p {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.42fr);
+      gap: 22px;
+    }
+
+    .panel,
+    .experience-item,
+    .project-card,
+    .research-card,
+    .publication,
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 1px 0 rgba(17, 31, 27, 0.03);
+    }
+
+    .panel {
+      padding: 28px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      font-size: 1.01rem;
+    }
+
+    .lead {
+      color: var(--ink);
+      font-size: 1.12rem;
+      font-weight: 680;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .focus-list div {
+      padding-left: 14px;
+      border-left: 3px solid var(--teal);
+      font-weight: 680;
+    }
+
+    .now-panel {
+      background: var(--deep-2);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .now-panel p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .mini-stack {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.94rem;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 24px;
+      padding: 24px;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .experience-item:hover,
+    .project-card:hover,
+    .publication:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .date {
+      color: var(--teal-2);
+      font-weight: 780;
+      font-size: 0.94rem;
+    }
+
+    .role strong {
+      display: block;
+      font-size: 1.08rem;
+    }
+
+    .role span,
+    .detail {
+      color: var(--muted);
+    }
+
+    .detail-rich {
+      display: grid;
+      gap: 14px;
+    }
+
+    .detail-rich p {
+      margin: 0;
+    }
+
+    .impact-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .impact-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .impact-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--teal);
+      box-shadow: 0 0 0 5px rgba(19, 121, 111, 0.1);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      min-height: 420px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--amber), var(--blue));
+      transform: scaleX(0.46);
+      transform-origin: left;
+      transition: transform 240ms ease;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 0 38%, rgba(255, 255, 255, 0.38) 46%, transparent 54% 100%);
+      transform: translateX(-120%);
+      transition: transform 700ms ease;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card:hover::after {
+      transform: translateX(120%);
+    }
+
+    .card-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .pill {
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 999px;
+      padding: 0 10px;
+      color: var(--teal-2);
+      background: #e5f3ef;
+      font-size: 0.76rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: currentColor;
+      animation: pulseDot 1800ms ease-in-out infinite;
+    }
+
+    h3 {
+      color: var(--ink);
+      font-size: 1.24rem;
+      line-height: 1.22;
+      font-weight: 790;
+      letter-spacing: 0;
+    }
+
+    .section-deep h3 {
+      color: #ffffff;
+    }
+
+    .project-card p,
+    .research-card p,
+    .publication p {
+      margin-top: 13px;
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--muted);
+      background: #ffffff;
+      font-size: 0.81rem;
+    }
+
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .text-link {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--teal-2);
+      font-weight: 780;
+      font-size: 0.9rem;
+    }
+
+    .text-link:hover {
+      color: var(--amber);
+    }
+
+    .research-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .research-card {
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 3px;
+      background: linear-gradient(90deg, #8cd2c8, var(--amber), #8cd2c8);
+      background-size: 200% 100%;
+      animation: lineFlow 2600ms linear infinite;
+    }
+
+    .research-card p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .research-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .research-points div {
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .publication {
+      padding: 20px;
+    }
+
+    .publication-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-column {
+      padding-top: 16px;
+      border-top: 3px solid var(--teal);
+    }
+
+    .skill-column h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-column p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.44fr);
+      gap: 30px;
+      align-items: center;
+      padding: 32px;
+      color: #ffffff;
+      background: var(--deep-2);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel p {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-weight: 720;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      background: var(--paper);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes heroDrift {
+      from {
+        transform: scale(1.02) translate3d(0, 0, 0);
+      }
+
+      to {
+        transform: scale(1.06) translate3d(-1.2%, -0.6%, 0);
+      }
+    }
+
+    @keyframes ambientShift {
+      from {
+        background-position: 0% 0%, 100% 50%;
+      }
+
+      to {
+        background-position: 100% 100%, 0% 50%;
+      }
+    }
+
+    @keyframes gridGlide {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 160px 160px;
+      }
+    }
+
+    @keyframes pulseDot {
+      0%, 100% {
+        opacity: 0.55;
+        transform: scale(0.85);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes lineFlow {
+      from {
+        background-position: 0% 0;
+      }
+
+      to {
+        background-position: 200% 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: calc(100svh - 74px);
+      }
+
+      .hero-inner {
+        padding-top: 54px;
+        padding-bottom: 292px;
+      }
+
+      .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metric {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .metric:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .section-heading,
+      .about-grid,
+      .research-layout,
+      .contact-panel,
+      .experience-item {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 660px) {
+      .nav {
+        min-height: 62px;
+      }
+
+      .hero {
+        min-height: calc(100svh - 86px);
+      }
+
+      .hero-inner {
+        padding-top: 40px;
+        padding-bottom: 184px;
+      }
+
+      h1 {
+        font-size: 3.05rem;
+      }
+
+      .hero-role {
+        font-size: 1.35rem;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: min(100%, 342px);
+      }
+
+      .hero-actions .button-primary {
+        grid-column: 1 / -1;
+      }
+
+      .button {
+        min-height: 44px;
+        padding: 0 12px;
+      }
+
+      .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metric {
+        min-height: 82px;
+        padding: 12px 14px;
+      }
+
+      .metric strong {
+        font-size: 0.96rem;
+      }
+
+      .metric span {
+        font-size: 0.82rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .panel,
+      .experience-item,
+      .project-card,
+      .research-card,
+      .contact-panel {
+        padding: 20px;
+      }
+
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark">PP</span>
+        <span>Padmakar Pimpale</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="https://drive.google.com/file/d/1DE2KLDUHS4sGfp5erbt2hOQw9qWxs32O/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Portfolio introduction">
+      <div class="container-flow" aria-hidden="true"></div>
+      <img class="hero-image" src="portfolio-sample-assets/ntu-developer-hero.png" alt="Modern research and software engineering workspace overlooking Singapore">
+      <div class="hero-inner" data-reveal>
+        <div class="eyebrow">Master's student at NTU Singapore</div>
+        <h1>Padmakar Pimpale</h1>
+        <p class="hero-role">Software Developer + AI/ML Research Engineer</p>
+        <p class="hero-copy">I build practical software systems across full-stack engineering, data workflows, and AI-assisted applications. My current focus is reliable AI-generated analytics, workflow lineage, and research-backed systems that can hold up in real-world data environments.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View projects</a>
+          <a class="button button-secondary" href="#research">Research focus</a>
+          <a class="button button-secondary" href="https://drive.google.com/file/d/1DE2KLDUHS4sGfp5erbt2hOQw9qWxs32O/view?usp=sharing" target="_blank" rel="noreferrer">View resume</a>
+        </div>
+      </div>
+      <div class="hero-metrics" aria-label="Profile facts">
+        <div class="metric">
+          <strong>1.5+ years</strong>
+          <span>AI/ML and backend engineering</span>
+        </div>
+        <div class="metric">
+          <strong>NTU Singapore</strong>
+          <span>MSIS graduate student</span>
+        </div>
+        <div class="metric">
+          <strong>Python + MERN</strong>
+          <span>Full-stack, ML, databases, APIs</span>
+        </div>
+        <div class="metric">
+          <strong>Seeking research</strong>
+          <span>AI systems, data lineage, analytics reliability</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft" id="about">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <div class="kicker">About</div>
+            <h2>Developer mindset, research direction, product instincts.</h2>
+          </div>
+          <p>A concise profile for recruiters, professors, and collaborators: enough technical credibility to scan quickly, with research depth where it matters.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel" data-reveal>
+            <p class="lead">I am currently pursuing MSIS at Nanyang Technological University, Singapore, after working across AI/ML products, backend services, and full-stack web applications.</p>
+            <p style="margin-top: 16px;">My work includes browser-based financial document analysis, MERN job-platform development, AI math tutoring, a government building-plan scrutiny engine, and data-science/ML prototypes. I enjoy turning unclear product or research ideas into systems that users can test, review, and improve.</p>
+            <div class="focus-list">
+              <div>Builds with Python, JavaScript, React, Node.js, Django, Flask, databases, and ML libraries.</div>
+              <div>Comfortable across APIs, dashboards, AI-assisted workflows, data extraction, and deployment.</div>
+              <div>Currently looking for research opportunities in AI systems, data lineage, and reliable analytics.</div>
+            </div>
+          </article>
+
+          <aside class="panel now-panel" data-reveal>
+            <h3>Current signal</h3>
+            <p>International graduate student at NTU Singapore with professional engineering experience and a research direction around validating AI-generated analytical workflows under changing data.</p>
+            <div class="mini-stack">
+              <span>Location: Singapore</span>
+              <span>Degree: MSIS, NTU Singapore</span>
+              <span>Open to: research assistantships, internships, software engineering roles</span>
+              <span>Resume: available on Google Drive</span>
+              <span>Email: 2002padmakar@gmail.com</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-white" id="experience">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <div class="kicker">Experience</div>
+            <h2>Engineering work across AI products and production backends.</h2>
+          </div>
+          <p>The wording here is intentionally impact-focused: what you built, what kind of system it was, and why it matters.</p>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-item" data-reveal>
+            <div class="date">Jun 2025 - Dec 2025</div>
+            <div class="role">
+              <strong>Backend Developer</strong>
+              <span>Sumanel Ventures Pvt. Ltd. (Chat360)</span>
+            </div>
+            <div class="detail detail-rich">
+              <p>Developed backend services for Microsoft Teams channel creation and management inside Chat360, automating collaboration workflows and reducing manual setup effort.</p>
+              <ul class="impact-list" aria-label="Chat360 key contributions">
+                <li>Built Microsoft Teams Channel Integration from scratch using Microsoft Graph API, Azure AD, OAuth 2.0, and permission-handling flows.</li>
+                <li>Implemented end-to-end message parsing and real-time synchronization between Chat360 and Microsoft Teams.</li>
+                <li>Architected Meta Ads Integration, a Facebook Ads Manager style module inside Chat360 using Meta Graph API v24.0.</li>
+                <li>Implemented ad creation, campaign/adset/creative lifecycle management, lead generation flows, and real-time ad analytics dashboards.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item" data-reveal>
+            <div class="date">Jun 2024 - Mar 2025</div>
+            <div class="role">
+              <strong>AI/ML Developer and Team Lead</strong>
+              <span>Techsharthi Consultancy Services, Hyderabad</span>
+            </div>
+            <div class="detail detail-rich">
+              <p>Worked on in-house product R&D and ABPAS 3.0, a scrutiny-engine project for Madhya Pradesh, India Government, focused on automating building-plan approval workflows.</p>
+              <ul class="impact-list" aria-label="Techsharthi key contributions">
+                <li>Developed scalable CAD/DXF parsing pipelines with Python, Pandas, Shapely, and ezdxf for FAR, setbacks, geometry, layers, and compliance validation.</li>
+                <li>Built pre-check modules for DXF layers, geometry, file structure, metadata, and reporting before deeper scrutiny processing.</li>
+                <li>Automated multilingual PDF reports with ReportLab, dynamic font scaling, structured tables, and reusable templates for statistics, FAR, heights, and plot metadata.</li>
+                <li>Integrated ezdxf with SVG rendering for geometry, dimensions, annotations, and adaptive TEXT/MTEXT boundary handling.</li>
+                <li>Connected SQL Server/SQLite rule-fetching modules, monitored logs and validation flows with Mobextrem, and optimized runtime stability.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item" data-reveal>
+            <div class="date">Jun 2023</div>
+            <div class="role">
+              <strong>Project Intern</strong>
+              <span>Physics Wallah Pvt. Ltd.</span>
+            </div>
+            <p class="detail">Built a MERN job portal with Node.js APIs, MongoDB schemas, authentication, authorization, client-side routing, and applicant/recruiter workflows.</p>
+          </article>
+
+          <article class="experience-item" data-reveal>
+            <div class="date">2020 - 2024</div>
+            <div class="role">
+              <strong>B.E. Computer Engineering</strong>
+              <span>International Institute of Information Technology, Pune</span>
+            </div>
+            <p class="detail">Graduated with a CGPA of 8.5, with coursework across data structures, algorithms, object-oriented programming, operating systems, and database management systems.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft" id="projects">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <div class="kicker">Projects</div>
+            <h2>Selected projects with working links and practical scope.</h2>
+          </div>
+          <p>These cards are written as portfolio case studies: problem, system, technical choices, and live/code links where available.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card" data-reveal>
+            <div>
+              <div class="card-topline">
+                <span>Financial document automation</span>
+                <span class="pill">Live on Vercel</span>
+              </div>
+              <h3>Bank Statement ITR Analyzer</h3>
+              <p>Browser-based bank statement PDF to Excel converter with ITR-oriented review summaries. It extracts transaction rows, supports OCR fallback for scanned PDFs, lets users review/edit rows, and exports multi-sheet Excel reports.</p>
+              <div class="tags">
+                <span class="tag">Vite</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">PDF parsing</span>
+                <span class="tag">OCR</span>
+                <span class="tag">Excel export</span>
+              </div>
+            </div>
+            <div class="card-links">
+              <a class="text-link" href="https://bank-statement-itr-analyzer-qpm28zsvu-padmakar4141s-projects.vercel.app/" target="_blank" rel="noreferrer">Live app &rarr;</a>
+              <a class="text-link" href="https://github.com/padmakarpimpale/bank-statement-itr-analyzer" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div>
+              <div class="card-topline">
+                <span>Community logistics MVP</span>
+                <span class="pill">Live on Vercel</span>
+              </div>
+              <h3>KampongDrop MVP</h3>
+              <p>Web MVP for HDB group food runs. It supports nearby run discovery, host-created hubs, neighbor reservations, live delivery-fee recalculation, host manifests, WhatsApp export, and arrival status.</p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Vite</span>
+                <span class="tag">Supabase-ready</span>
+                <span class="tag">Vercel</span>
+                <span class="tag">Product MVP</span>
+              </div>
+            </div>
+            <div class="card-links">
+              <a class="text-link" href="https://kampong-drop.vercel.app/" target="_blank" rel="noreferrer">Live app &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div>
+              <div class="card-topline">
+                <span>Full-stack platform</span>
+                <span class="pill">MERN</span>
+              </div>
+              <h3>Job Portal</h3>
+              <p>MERN web app for applicants and recruiters with persistent sessions, JWT-protected REST APIs, recruiter job management, application status flows, fuzzy search, SOP submission, profile pictures, and resume uploads.</p>
+              <div class="tags">
+                <span class="tag">MongoDB</span>
+                <span class="tag">Express</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">JWT</span>
+              </div>
+            </div>
+            <div class="card-links">
+              <a class="text-link" href="https://jobportalsvp2.netlify.app/" target="_blank" rel="noreferrer">Live app &rarr;</a>
+              <a class="text-link" href="https://github.com/padmakarpimpale/job-portal/tree/main" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div>
+              <div class="card-topline">
+                <span>AI education product</span>
+                <span class="pill">AI/ML</span>
+              </div>
+              <h3>Math Tutor</h3>
+              <p>AI-driven math tutoring application with a React frontend and Python/Flask backend, built to help students solve mathematical problems through interactive, step-by-step explanations and guided learning flows.</p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">LLM workflow</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div>
+              <div class="card-topline">
+                <span>GovTech automation</span>
+                <span class="pill">Scrutiny engine</span>
+              </div>
+              <h3>Automated Building Plan Scrutiny</h3>
+              <p>ABPAS 3.0 scrutiny-engine work for Madhya Pradesh, India Government, focused on CAD/DXF parsing, FAR and setback checks, rule-based compliance validation, geometry rendering, and multilingual PDF reporting.</p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">ezdxf</span>
+                <span class="tag">Shapely</span>
+                <span class="tag">ReportLab</span>
+                <span class="tag">SQL Server</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <div>
+              <div class="card-topline">
+                <span>Data science prototype</span>
+                <span class="pill">ML</span>
+              </div>
+              <h3>Metro Interstate Prediction</h3>
+              <p>Predictive maintenance and analytics project for improving metro-system efficiency and reliability, using Python, scikit-learn, TensorFlow, and Keras for machine-learning and deep-learning experiments.</p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">scikit-learn</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Keras</span>
+              </div>
+            </div>
+            <div class="card-links">
+              <a class="text-link" href="https://trafficvolume-predictor.anvil.app/" target="_blank" rel="noreferrer">Live app &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-deep" id="research">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <div class="kicker">Research</div>
+            <h2>Researching reliable AI-generated analytics under changing data.</h2>
+          </div>
+          <p>Current direction: data lineage, provenance, selective recomputation, and validation of AI-generated analytical conclusions when datasets, schemas, or assumptions evolve.</p>
+        </div>
+
+        <div class="research-layout">
+          <article class="research-card" data-reveal>
+            <h3>Current research direction</h3>
+            <p><strong>Lineage-Aware Revalidation of AI-Generated Data Science Workflows Under Evolving Data.</strong> The goal is to track dependencies between data sources, transformations, SQL/Python workflows, models, visualizations, and textual claims so an AI analysis can be reused, partially recomputed, fully recomputed, or rejected safely after data changes.</p>
+            <div class="research-points">
+              <div>Proposed benchmark: ChangeImpactBench for evaluating workflow validity after row, value, schema, label, and business-rule changes.</div>
+              <div>Core methods: dependency graphs, provenance tracking, selective recomputation, uncertainty-aware reuse/abstain decisions.</div>
+              <div>Target domains: finance, healthcare, e-commerce, logistics, and enterprise decision-making where stale analytics create risk.</div>
+            </div>
+          </article>
+
+          <div class="publication-list">
+            <article class="publication" data-reveal>
+              <div class="publication-meta">Published research | AI floor-plan generation</div>
+              <h3>Automated AI Floor Plan Generation - Paper 1</h3>
+              <p>Prior research work on AI-assisted architectural floor-plan generation and automation in design workflows.</p>
+              <div class="card-links">
+                <a class="text-link" href="https://www.ijnrd.org/papers/IJNRD2405604.pdf" target="_blank" rel="noreferrer">IJNRD2405604 PDF &rarr;</a>
+              </div>
+            </article>
+
+            <article class="publication" data-reveal>
+              <div class="publication-meta">Published research | AI floor-plan generation</div>
+              <h3>Automated AI Floor Plan Generation - Paper 2</h3>
+              <p>Related publication connecting generative AI, floor-plan automation, and intelligent support for planning workflows.</p>
+              <div class="card-links">
+                <a class="text-link" href="https://www.ijnrd.org/papers/IJNRD2403536.pdf" target="_blank" rel="noreferrer">IJNRD2403536 PDF &rarr;</a>
+              </div>
+            </article>
+
+            <article class="publication" data-reveal>
+              <div class="publication-meta">Research interests</div>
+              <h3>Actively looking for research collaboration</h3>
+              <p>Interested in AI systems, data provenance, reliable LLM agents for analytics, automated data-science workflows, evaluation benchmarks, and applied machine-learning systems.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-white" id="skills">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <div>
+            <div class="kicker">Skills</div>
+            <h2>Technical stack grouped by how I use it.</h2>
+          </div>
+          <p>This keeps the skills section professional: less keyword dumping, more signal for engineering and research roles.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-column" data-reveal>
+            <h3>Languages</h3>
+            <p>Python, JavaScript, Java, C++, SQL</p>
+          </div>
+          <div class="skill-column" data-reveal>
+            <h3>Frontend</h3>
+            <p>React, Next.js, Vite, responsive UI, dashboards, client-side routing</p>
+          </div>
+          <div class="skill-column" data-reveal>
+            <h3>Backend</h3>
+            <p>Node.js, Express, Django, Flask, REST APIs, authentication, JWT</p>
+          </div>
+          <div class="skill-column" data-reveal>
+            <h3>Databases</h3>
+            <p>PostgreSQL, MySQL, MongoDB, schema design, query workflows</p>
+          </div>
+          <div class="skill-column" data-reveal>
+            <h3>AI/ML</h3>
+            <p>Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, PyTorch, Keras, TensorFlow</p>
+          </div>
+          <div class="skill-column" data-reveal>
+            <h3>LLM Systems</h3>
+            <p>OpenAI API, Google Gemini, RAG concepts, AI-assisted workflows, evaluation</p>
+          </div>
+          <div class="skill-column" data-reveal>
+            <h3>Tools + Cloud</h3>
+            <p>Docker, Vercel, Netlify, GitHub, Supabase-ready deployments</p>
+          </div>
+          <div class="skill-column" data-reveal>
+            <h3>Foundations</h3>
+            <p>DSA, OOP, operating systems, DBMS, technical writing, research reading</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft" id="contact">
+      <div class="container">
+        <div class="contact-panel" data-reveal>
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Open to research, internships, and software engineering opportunities.</h2>
+            <p>I am especially interested in AI systems, reliable analytics, backend/data platforms, and practical products that combine software engineering with research thinking.</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:2002padmakar@gmail.com">2002padmakar@gmail.com <span>&rarr;</span></a>
+            <a href="https://drive.google.com/file/d/1DE2KLDUHS4sGfp5erbt2hOQw9qWxs32O/view?usp=sharing" target="_blank" rel="noreferrer">View resume <span>&rarr;</span></a>
+            <a href="https://drive.google.com/uc?export=download&id=1DE2KLDUHS4sGfp5erbt2hOQw9qWxs32O" target="_blank" rel="noreferrer" download>Download resume <span>&rarr;</span></a>
+            <a href="https://github.com/padmakarpimpale" target="_blank" rel="noreferrer">GitHub <span>&rarr;</span></a>
+            <a href="https://www.linkedin.com/in/padmakar4141/" target="_blank" rel="noreferrer">LinkedIn <span>&rarr;</span></a>
+            <a href="#projects">Selected work <span>&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">&copy; 2026 Padmakar Pimpale. Portfolio draft prepared for an NTU Singapore MSIS student and software developer.</div>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll("[data-reveal]");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealItems.forEach((item, index) => {
+        item.style.transitionDelay = `${Math.min(index * 45, 260)}ms`;
+        observer.observe(item);
+      });
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
